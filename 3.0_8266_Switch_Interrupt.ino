@@ -8,7 +8,7 @@ void setup()
   Serial.begin(9600); // initialize serial:
   pinMode(ledPin,OUTPUT);
   pinMode(buttonPin1,INPUT_PULLUP);
-  attachInterrupt(buttonPin1,EXTI_ISR,CHANGE);
+  attachInterrupt(buttonPin1,ISR_D1,CHANGE);
 }
 
 void loop()
@@ -16,7 +16,7 @@ void loop()
   delay(250);
 }
 
-void EXTI_ISR()
+void ISR_D1()
 {
   digitalWrite(ledPin,!digitalRead(ledPin));
   Serial.println("Interrupt from pin D1");
